@@ -28,6 +28,8 @@ public class FirstTest {
 
     @Test
     public void testUntitledTestCase() throws Exception {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications");
         driver.get("https://b-apteka.ru/");
         Thread.sleep(5000);
         driver.findElement(By.xpath("//div[@id='anchor-header']/div/div/div[2]/div/div[3]/a[2]/p")).click();
@@ -35,9 +37,9 @@ public class FirstTest {
         driver.findElement(By.id("phone")).click();
         Thread.sleep(5000);
         driver.findElement(By.id("phone")).clear();
-        driver.findElement(By.id("phone")).sendKeys("+7 900 000 00 00");
+        driver.findElement(By.id("phone")).sendKeys("+900 000 00 00");
         Thread.sleep(5000);
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Код из СМС'])[1]/following::span[2]")).click();
+        driver.findElement(By.xpath("//button/div/div[2]")).click();
         Thread.sleep(5000);
         driver.findElement(By.id("code")).click();
         Thread.sleep(5000);
