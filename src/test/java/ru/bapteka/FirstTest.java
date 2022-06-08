@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class FirstTest {
     private WebDriver driver;
@@ -18,6 +19,8 @@ public class FirstTest {
         System.setProperty("webdriver.chrome.driver", "D:\\JetBrains\\chromedriver\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications");
         baseUrl = "https://www.google.com/";
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         js = (JavascriptExecutor) driver;
@@ -26,16 +29,35 @@ public class FirstTest {
     @Test
     public void testUntitledTestCase() throws Exception {
         driver.get("https://b-apteka.ru/");
+        Thread.sleep(5000);
         driver.findElement(By.xpath("//div[@id='anchor-header']/div/div/div[2]/div/div[3]/a[2]/p")).click();
+        Thread.sleep(5000);
         driver.findElement(By.id("phone")).click();
+        Thread.sleep(5000);
         driver.findElement(By.id("phone")).clear();
-        driver.findElement(By.id("phone")).sendKeys("900 000 00 00");
+        driver.findElement(By.id("phone")).sendKeys("+7 900 000 00 00");
+        Thread.sleep(5000);
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Код из СМС'])[1]/following::span[2]")).click();
+        Thread.sleep(5000);
         driver.findElement(By.id("code")).click();
+        Thread.sleep(5000);
         driver.findElement(By.id("code")).clear();
         driver.findElement(By.id("code")).sendKeys("1111");
+        Thread.sleep(5000);
         driver.findElement(By.xpath("//div[@id='anchor-header']/div/div/div[2]/div/div/a[2]")).click();
-        //ERROR: Caught exception [unknown command []]
+        Thread.sleep(5000);
+        driver.findElement(By.linkText("Фармабонус")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.linkText("Лимфодренаж")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.linkText("Каталог товаров")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.linkText("Товары для мамы и малыша")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//img[@alt='Млекоин']")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//div[@id='anchor-header']/div/div/div[2]/div/div/a[2]")).click();
+        Thread.sleep(5000);
     }
 
     @After
