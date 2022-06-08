@@ -66,9 +66,9 @@ public class AssemblingTheBasket {
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Завтра в 93 аптеках'])[1]/following::button[2]")).click();
         Thread.sleep(2000);
         driver.findElement(By.linkText("Оформить заказ")).click();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         driver.findElement(By.linkText("Выбрать")).click();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         driver.findElement(By.xpath("//div[@id='pharm-select']/div/div/div[2]/div/div/div/div[2]/div/label/div/div[2]")).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath("//div[@id='pharm-current']/div/div[2]/div[3]/div/div[2]/button")).click();
